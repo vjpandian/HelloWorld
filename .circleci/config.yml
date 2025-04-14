@@ -1,12 +1,15 @@
 version: 2.1
 
+orbs:
+  android: circleci/android@2.0.3
+
 # Define the jobs we want to run for this project
 jobs:
   ios:
     macos:  # indicate that we are using the macOS executor
-      xcode: 11.7.0
+      xcode: 14.3.1
     environment:
-      IOS_VERSION: 12.4
+      IOS_VERSION: 16.4
       DEVICE_NAME: TestiPhoneX
     steps:
       - checkout
@@ -59,9 +62,9 @@ jobs:
       - store_artifacts:
           path: __tests__/e2e/test-results
           destination: test-results-ios
+          
   android:
-    macos:  # indicate that we are using the macOS executor
-      xcode: 11.7.0
+    executor: android/android-machine
     environment:
       JAVA_HOME: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
       ANDROID_SDK_ROOT: /usr/local/Caskroom/android-sdk/4333796
