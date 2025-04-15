@@ -16,10 +16,10 @@ jobs:
       image: ubuntu-2204:current
     steps:
       - run: echo "I got this far, amazing!"
-      - run: exit 1
+      #- run: exit 1
 
 workflows:
   demo-workflow:
     jobs:
-      #- security-scan
+      - security-scan
       - ubuntu-job
