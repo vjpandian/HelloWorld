@@ -1,19 +1,13 @@
 version: 2.1
 
-orbs:
-  aws-cli: circleci/aws-cli@3.1.5
-
-
 jobs:
   ubuntu-job:
-    machine:
-      image: ubuntu-2404:current
+    machine: true
     steps:
       - run: echo "hello"
 
   security-scan:
-    machine:
-      image: ubuntu-2204:current
+    machine: true
     steps:
       - run: echo "I got this far, amazing!"
 
